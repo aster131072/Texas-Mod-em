@@ -1,2 +1,2 @@
 # Texas Mod'em
-Create your own texas hold'em hand rankings.
+You can edit saveload.js to create your own texas hold'em hand rankings.
