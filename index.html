@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8" />
+<title>Texas Mod'em Demo</title>
+<link rel="stylesheet" href="css/style.css">
+<script src="script/saveload.js" defer></script>
+<script src="script/RuleEditor.js" defer></script>
+<script src="script/CardDecision.js" defer></script>
+</head>
+
+<body onpageshow="loadRules()">
+<!-- 公共牌 -->
+<section class="panel">
+  <h2>公共牌（5 张）</h2>
+  <button id="deal-btn">发牌</button>
+  <textarea id="import-text" rows="6" cols="40"
+  placeholder="公共牌：A♠ K♥ Q♦ J♣ T♠&#10;1号的手牌是：A♠ K♥&#10;2号的手牌是：Q♦ J♣"></textarea>
+<button id="import-btn">导入</button>
+  <pre id="deal-text"></pre>
+  <div id="board" class="card-row">
+  	
+  </div>
+</section>
+
+<!-- 玩家区 -->
+<section class="panel two-col">
+  <div>
+    <h2>玩家手牌</h2>
+    <div id="players"></div>
+    <button onclick="addPlayer()">+ 添加玩家</button>
+  </div>
+
+  <div>
+    <h2>结果</h2>
+    <div id="results"></div>
+  </div>
+</section>
+<section class="panel">
+  <!-- 左侧规则列表 -->
+  <div id="rule-list">
+    <h3>牌型规则</h3>
+    <div id="rules-div"></div>
+    <!--<button onclick="addRule()">+ 新增牌型</button>-->
+    <button onclick="exportRules()">导出规则</button>
+		<button onclick="triggerImport()">导入规则</button>
+		<button onclick="resetRules()">初始化规则</button>
+		<input type="file" id="import-file" accept=".json,.txt" hidden>
+
+  </div>
+
+  <!-- 右侧编辑器 
+  <div id="editor">
+    <div class="section">
+      <h3>基本信息</h3>
+      <label>名称
+        <input id="rule-name">
+      </label>
+      <label>大小等级
+        <input id="rule-priority" type="number" step="0.1">
+      </label>
+      <label>
+        <input id="rule-enabled" type="checkbox"> 启用
+      </label>
+      <label>
+	      <button class="btn" style="background:#c0392b" onclick="deleteCurrentRule()">
+	  			删除该牌型
+				</button>
+      </label>
+
+
+    </div>
+
+    <div class="section">
+      <h3>匹配条件</h3>
+      <label>
+        模式：
+        <select id="match-mode">
+          <option value="all">全部满足 (AND)</option>
+          <option value="any">任一满足 (OR)</option>
+        </select>
+      </label>
+
+      <div id="conditions"></div>
+      <button onclick="addCondition()">+ 添加条件</button>
+    </div>
+
+    <div class="section">
+      <h3>Kickers 比较顺序</h3>
+      <div id="kickers"></div>
+      <button onclick="addKicker()">+ 添加比较项</button>
+    </div>
+
+    <div class="section">
+      <h3>DSL 预览</h3>
+      <pre id="dsl-preview"></pre>
+    </div>
+  </div>
+  
+  -->
+</section>
+
+
+</body>
+</html>
